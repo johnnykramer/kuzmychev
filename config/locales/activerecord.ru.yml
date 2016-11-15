@@ -1,0 +1,14 @@
+ru:
+  activerecord:
+    models:
+      note: 'Записка'
+    attributes:
+      note:
+        title: 'Название'
+        announce: 'Кратко'
+        body: 'Контент'
+        image: 'Картинка'
+        all_tags: 'Теги'
+    errors:
+      messages:
+        blank: 'не может быт пустым!'

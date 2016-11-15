@@ -1,0 +1,37 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Kuzmychev
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %section#header
+      .ui.container
+        .ui.pointing.menu
+          = link_to 'Главная', root_path, class: 'item'
+          = link_to 'Записки', notes_path, class: 'item'
+          = link_to new_note_path, class: 'item' do
+            %i.large.icons
+              %i.file.outline.icon
+              %i.inverted.corner.add.icon
+          .right.menu
+            %a.item
+              %i.large.github.icon
+      .ui.text.container
+        - flash.each do |name, message|
+          %div{class: "ui message #{name}"}
+            .header= message
+              
+    %section#main
+      .ui.container
+        .ui.grid
+          .twelve.wide.column
+            = yield
+          .four.wide.column
+            - tag_cloud(Tag.counts, %w{tag1 tag2 tag3 tag4 tag5}) do |tag, css_class|
+              = link_to tag.name, tag_path(tag.name), class: css_class
+        
+    %section#footer.ui.text.container
+      %h5.ui.centered.grid= link_to "Kuzmychev | #{Time.now.strftime("%Y")}", root_path

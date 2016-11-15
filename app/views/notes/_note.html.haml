@@ -1,0 +1,12 @@
+.item
+  .image
+    = image_tag note.image.url(:thumb)
+  .content
+    = link_to note.title, note_path(note), class: 'header'
+    .meta
+      %i.checked.calendar.icon
+      %time= note.created_at.strftime("%d.%m.%Y")
+    .description
+      %p= note.announce
+    .extra
+      = raw note.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'ui tag label' }.join(' ')

@@ -1,0 +1,13 @@
+.ui.text.container.posrel
+  %h1.ui.header.centered.grid= @note.title
+  .note-time.right.aligned.grid
+    %i.checked.calendar.icon
+    %time= @note.created_at.strftime("%d.%m.%Y")
+  = image_tag @note.image.url, class: 'ui centered image'
+  .ui.padded.segment
+    %p= @note.body.html_safe
+    .ui.buttons
+      = link_to edit_note_path(@note), class: 'left attached ui icon button' do
+        %i.edit.icon
+      = link_to note_path(@note), method: :delete, class: 'right attached ui icon button', data: {confirm: "Удалить записку #{@note.title}???"} do
+        %i.erase.icon

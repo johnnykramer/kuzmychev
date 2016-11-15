@@ -1,0 +1,30 @@
+= form_for @note, html: {class: 'ui form', multipart: true} do |f|
+  .field
+    = f.label :title
+    = f.text_field :title, placeholder: 'Заголовок'
+  .field
+    = f.label :announce
+    = f.text_area :announce
+  .field
+    = f.label :image
+    = f.file_field :image
+    = image_tag @note.image.url(:thumb) if @note.image.present?
+  .field
+    = f.label :body
+    = f.trix_editor :body, class: 'editor'
+  - if @note.errors.any?
+    .field
+      .ui.container
+        .ui.message.red
+          .header= t('common.errors')
+          %ul
+            - @note.errors.full_messages.each do |message|
+              %li= message
+  
+  .field
+    = f.label :all_tags
+    = f.text_field :all_tags
+  .field
+    .ui.buttons
+      = f.submit t('.submit', action: @note.new_record? ? 'Добавить' : 'Редактировать'), class: 'left attached ui icon button green'
+      = link_to t('common.back'), :back, class: 'right attached ui icon button'

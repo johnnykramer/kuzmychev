@@ -1,0 +1,7 @@
+.ui.text.container
+  %h1= @tag.name
+  - if @tag.notes.empty?
+    %h2 Записок с таким тегом нет :(
+  - else
+    .ui.divided.items
+      = render @tag.notes

@@ -1,0 +1,14 @@
+ru:
+  common:
+    errors: 'Ошибка при заполнении формы!'
+    back: 'Назад'
+  notes:
+    index:
+      title: 'Записки'
+    new:
+      title: 'Добавить записку'
+    edit:
+      title: 'Редактировать записку'
+    form:
+      submit:
+        '%{action} записку'
