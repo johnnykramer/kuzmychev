@@ -49,7 +49,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml'
 gem 'html2haml'
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'semantic-ui-sass'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'mini_magick'
 gem 'trix'
